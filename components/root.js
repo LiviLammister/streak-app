@@ -1,28 +1,47 @@
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+'use strict'
 
-// import { Dashboard } from './dashboard';
-import { TaskList } from './task-list';
+import React, { Component } from 'react'
+import { TabBarIOS } from 'react-native'
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginTop: 30,
-    }
-})
+import { Dashboard } from './dashboard'
+import { TaskList } from './task-list'
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     marginTop: 30
+//   }
+// })
 
 class Root extends Component {
-    _renderScene = () => { // eslint-disable-line
-        return <TaskList />
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                {this._renderScene()}
-            </View>
-        )
-    }
+  constructor () {
+    super()
+    this.state = {selectedTab: 'dashboard'}
+  }
+  render () {
+    return (
+      <TabBarIOS selectedTab={this.state.selectedTab}>
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === 'dashboard'}
+          title={'Dashboard'}
+          onPress={() => {
+            this.setState({selectedTab: 'dashboard'})
+          }}
+        >
+          <Dashboard />
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === 'tasks'}
+          title={'Tasks'}
+          onPress={() => {
+            this.setState({selectedTab: 'tasks'})
+          }}
+        >
+          <TaskList />
+        </TabBarIOS.Item>
+      </TabBarIOS>
+    )
+  }
 }
 
-export default Root;
+export default Root

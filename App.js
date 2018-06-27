@@ -1,2 +1,2 @@
-import Root from './components/root';
-export default Root;
+import Root from './components/root'
+export default Root
