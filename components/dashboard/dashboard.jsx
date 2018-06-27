@@ -18,8 +18,8 @@ class Dashboard extends Component {
     render() {
         return (
             <View>
-               <Text style={styles.text}>
-                Dashboard
+                <Text style={styles.text}>
+                    Dashboard
                 </Text>
             </View>
         )
