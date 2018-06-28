@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   }
 })
 
-class TaskList extends Component {
+class TaskListScreen extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -74,4 +74,4 @@ class TaskList extends Component {
     }
 }
 
-export default TaskList
+export default TaskListScreen

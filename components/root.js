@@ -4,14 +4,8 @@ import React, { Component } from 'react'
 import { TabBarIOS } from 'react-native'
 
 import { Dashboard } from './dashboard'
-import { TaskList } from './task-list'
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     marginTop: 30
-//   }
-// })
+import { TaskListScreen } from './task-list'
+import { CalendarScreen } from './calendar'
 
 class Root extends Component {
   constructor () {
@@ -37,7 +31,16 @@ class Root extends Component {
             this.setState({selectedTab: 'tasks'})
           }}
         >
-          <TaskList />
+          <TaskListScreen />
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === 'calendar'}
+          title={'Calendar'}
+          onPress={() => {
+            this.setState({selectedTab: 'calendar'})
+          }}
+        >
+          <CalendarScreen />
         </TabBarIOS.Item>
       </TabBarIOS>
     )
